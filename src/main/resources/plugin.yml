@@ -1,6 +1,6 @@
 name: WantedPlayers
 main: org.toni_4819.wantedPlayers.WantedPlayers
-version: '1.1'
+version: '1.1.1'
 api-version: 1.21
 author: Toni_4819
 description: Adds Wanted levels and rewards based on killstreaks.
