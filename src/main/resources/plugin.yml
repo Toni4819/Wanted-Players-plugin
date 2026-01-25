@@ -1,4 +1,22 @@
-name: Wanted Players
-version: '1.0'
+name: WantedPlayers
 main: org.toni_4819.wantedPlayers.WantedPlayers
-api-version: '1.21'
+version: '1.0'
+api-version: 1.21
+author: Toni_4819
+description: Adds Wanted levels and rewards based on killstreaks.
+
+# Hard dependencies: plugin will not load without them
+depend: [PlaceholderAPI, Vault, PvpStats]
+
+# Soft dependencies: optional, plugin adapts if present
+softdepend: [LuckPerms]
+
+commands:
+  wantedreload:
+    description: Reload the WantedPlayers configuration
+    permission: wanted.reload
+
+permissions:
+  wanted.reload:
+    description: Allows reloading the config
+    default: op
