@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id("xyz.jpenilla.run-paper") version "2.3.1"
+    id("com.github.johnrengelman.shadow") version "8.1.1" //bStats
 }
 
 group = 'org.toni_4819'
@@ -18,6 +19,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    implementation("org.bstats:bstats-bukkit:3.1.0") //bStats
 
     compileOnly("com.github.MilkBowl:VaultAPI:1.7") {
         exclude group: "org.bukkit", module: "bukkit"
@@ -64,3 +66,11 @@ processResources {
         expand props
     }
 }
+
+tasks.named("shadowJar", com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
+    configurations = [project.configurations.runtimeClasspath]
+    dependencies {
+        exclude { it.moduleGroup != "org.bstats" }
+    }
+    relocate("org.bstats", "${project.group}.bstats")
+} //bStats
