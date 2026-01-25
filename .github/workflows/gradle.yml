@@ -9,12 +9,14 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+    tags:
+      - 'v*'
   pull_request:
-    branches: [ "main" ]
-  # Optional: trigger release job on tag push
-  tags:
-    - 'v*'
+    branches:
+      - main
+
 
 jobs:
   build:
