@@ -99,7 +99,7 @@ messages:
 - `%wanted_stars%` → star display (★/☆)
 - `%wanted_multiplier%` → total multiplier (Wanted × group)
 
-### 1.0 and 1.1
+### 1.1.1+
 - `%wantedplayers_level%` → current Wanted level (1–5)
 - `%wantedplayers_stars%` → star display (★/☆)
 - `%wantedplayers_multiplier%` → total multiplier (Wanted × group)
