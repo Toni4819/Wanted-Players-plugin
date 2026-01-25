@@ -1,0 +1,4 @@
+name: Wanted Players
+version: '1.0'
+main: org.toni_4819.wantedPlayers.WantedPlayers
+api-version: '1.21'
