@@ -1,7 +1,7 @@
 # 🎯 WantedPlayers
 
 WantedPlayers is a Paper plugin that adds a **Wanted Level system** based on player killstreaks.  
-It rewards bounty hunters with **coins via Vault** and displays Wanted stars using PlaceholderAPI.
+It rewards bounty hunters with **money via Vault** and displays Wanted stars using PlaceholderAPI.
 
 ---
 
@@ -10,7 +10,7 @@ It rewards bounty hunters with **coins via Vault** and displays Wanted stars usi
 - [Vault](https://www.spigotmc.org/resources/vault.34315/) – economy handling
 - [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) – placeholders
 - [LuckPerms](https://luckperms.net/) – groups and permissions  (optionnal)
-- [PvpStats](https://www.spigotmc.org/resources/pvpstats-plugin.69984/) – killstreak tracking
+- [PvSStats Plugin](https://www.spigotmc.org/resources/pvpstats-plugin.69984/) – killstreak tracking
 
 ---
 
@@ -94,16 +94,20 @@ messages:
 ---
 
 ## 🪧 Placeholders (via PlaceholderAPI)
-
+### 1.0 and 1.1
 - `%wanted_level%` → current Wanted level (1–5)
 - `%wanted_stars%` → star display (★/☆)
 - `%wanted_multiplier%` → total multiplier (Wanted × group)
 
+### 1.0 and 1.1
+- `%wantedplayers_level%` → current Wanted level (1–5)
+- `%wantedplayers_stars%` → star display (★/☆)
+- `%wantedplayers_multiplier%` → total multiplier (Wanted × group)
 ---
 
 ## 🎮 How it works
 
-1. Each kill increases your **killstreak** (via PvpStats).
+1. Each kill increases your **killstreak** (via PvPStats Plugin).
 2. Your **Wanted level** is calculated based on thresholds.
 3. On each kill, you receive a random reward (min–max) × Wanted multiplier × group multiplier.
 4. Coins are added directly to your balance via Vault.
