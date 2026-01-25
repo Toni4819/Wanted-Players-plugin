@@ -6,7 +6,7 @@ author: Toni_4819
 description: Adds Wanted levels and rewards based on killstreaks.
 
 # Hard dependencies: plugin will not load without them
-depend: [PlaceholderAPI, Vault, PvpStats]
+depend: [PlaceholderAPI, Vault, pvpstats]
 
 # Soft dependencies: optional, plugin adapts if present
 softdepend: [LuckPerms]
