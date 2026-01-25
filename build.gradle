@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id("xyz.jpenilla.run-paper") version "2.3.1"
-    id("com.github.johnrengelman.shadow") version "8.1.1" //bStats
+    id("com.gradleup.shadow") version "8.3.0" //bStats
 }
 
 group = 'org.toni_4819'
@@ -69,8 +69,5 @@ processResources {
 
 tasks.named("shadowJar", com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
     configurations = [project.configurations.runtimeClasspath]
-    dependencies {
-        exclude { it.moduleGroup != "org.bstats" }
-    }
     relocate("org.bstats", "${project.group}.bstats")
-} //bStats
+}
