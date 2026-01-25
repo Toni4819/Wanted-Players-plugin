@@ -18,7 +18,7 @@ public class WantedExpansion extends PlaceholderExpansion {
     }
 
     public String getIdentifier() {
-        return "wanted";
+        return "wantedplayers";
     }
 
     public String getAuthor() {
