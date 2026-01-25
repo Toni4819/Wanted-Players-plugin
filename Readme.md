@@ -10,7 +10,7 @@ It rewards bounty hunters with **coins via Vault** and displays Wanted stars usi
 - [Vault](https://www.spigotmc.org/resources/vault.34315/) – economy handling
 - [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) – placeholders
 - [LuckPerms](https://luckperms.net/) – groups and permissions  (optionnal)
-- [PvpStats](https://www.spigotmc.org/resources/pvpstats.59124/) – killstreak tracking
+- [PvpStats](https://www.spigotmc.org/resources/pvpstats-plugin.69984/) – killstreak tracking
 
 ---
 
