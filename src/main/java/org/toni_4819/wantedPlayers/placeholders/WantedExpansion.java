@@ -36,7 +36,8 @@ public class WantedExpansion extends PlaceholderExpansion {
             int killstreak = 0;
 
             try {
-                String ksStr = PlaceholderAPI.setPlaceholders(player, "%pvpstats_killstreak%");
+                String placeholder = plugin.getConfig().getString("killstreak-placeholder", "%pvpstats_killstreak%");
+                String ksStr = PlaceholderAPI.setPlaceholders(player, placeholder);
                 killstreak = Integer.parseInt(ksStr);
             } catch (Exception var15) {
             }

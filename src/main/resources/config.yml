@@ -2,6 +2,10 @@
 # WantedPlayers Configuration
 # ============================
 
+# Killstreak placeholder used to get player killstreak.
+# Change it with a valid killstreak placeholder from any plugin or expansion.
+killstreak-placeholder: "%pvpstats_killstreak%"
+
 # Killstreak thresholds for each Wanted level.
 # Example: level 1 requires 1 killstreak, level 2 requires 3, etc.
 wanted-levels:
