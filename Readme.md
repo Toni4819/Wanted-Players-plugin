@@ -10,7 +10,7 @@ It rewards bounty hunters with **money via Vault** and displays Wanted stars usi
 - [Vault](https://www.spigotmc.org/resources/vault.34315/) – economy handling
 - [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) – placeholders
 - [LuckPerms](https://luckperms.net/) – groups and permissions  (optionnal)
-- [PvSStats Plugin](https://www.spigotmc.org/resources/pvpstats-plugin.69984/) – killstreak tracking
+- [PvSStats Plugin](https://www.spigotmc.org/resources/pvpstats-plugin.69984/) – or other killstreak tracking plugin for plugin version 1.2+
 
 ---
 
@@ -20,6 +20,10 @@ It rewards bounty hunters with **money via Vault** and displays Wanted stars usi
 # ============================
 # WantedPlayers Configuration
 # ============================
+
+# Killstreak placeholder used to get player killstreak.
+# Change it with a valid killstreak placeholder from any plugin or expansion.
+killstreak-placeholder: "%pvpstats_killstreak%"
 
 # Killstreak thresholds for each Wanted level.
 # Example: level 1 requires 1 killstreak, level 2 requires 3, etc.
