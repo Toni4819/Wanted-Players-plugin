@@ -60,9 +60,20 @@ rewards:
       min: 80
       max: 150
 
+  # Reward sources for entities.
+  # Add a mob here to make it give a reward.
+  # Example: killing a player multiplies reward by 3.
+  # Multiplier is optional, defaults is 1.
+  reward-sources:
+    player: 3
+    zombie: 1
+    iron_golem: 2
+    # fire_dragon: 5  #Example MythicMobs entity reward source
+
+
   # Multipliers applied based on Wanted level.
   # Example: level 3 multiplies the base reward by 2.0.
-  multipliers:
+  level-multipliers:
     1: 1.0
     2: 1.5
     3: 2.0
@@ -75,6 +86,12 @@ rewards:
     default: 1.0
     vip: 2.5
     vip_plus: 3
+
+  #Reward commands
+  #Available placeholders are: %player% -> return player username, %amount% -> return reward amount in decimal.
+  #Add as many as you want !
+  reward-command:
+    - 'eco give %player% %amount%'
 
 messages:
   # Message sent to the killer when they receive coins.
