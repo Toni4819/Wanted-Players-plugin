@@ -40,6 +40,17 @@ rewards:
       min: 80
       max: 150
 
+
+
+  # Reward sources for entities.
+  # Add a mob here to make it give a reward.
+  # Example: killing a player multiplies reward by 3.
+  # Multiplier is optional, defaults is 1.
+  reward-sources:
+    player: 3
+    zombie: 1
+    iron_golem: 2
+
   # Multipliers applied based on Wanted level.
   # Example: level 3 multiplies the base reward by 2.0.
   multipliers:
