@@ -26,8 +26,7 @@ public class KillListener implements Listener {
     public void onEntityKill(EntityDeathEvent event) {
         Player killer = event.getEntity().getKiller();
         if (killer == null) return;
-
-        // Récupération du killstreak via PlaceholderAPI
+        // Get killstreak with PlaceholderAPI
         String ksStr = PlaceholderAPI.setPlaceholders(killer, plugin.getConfig().getString("killstreak-placeholder", "%pvpstats_killstreak%"));
         int killstreak = 0;
         try {
@@ -43,7 +42,7 @@ public class KillListener implements Listener {
         int baseReward = min + random.nextInt(max - min + 1);
 
         // Multipliers
-        double wantedMult = plugin.getConfig().getDouble("rewards.multipliers." + wantedLevel, 1.0D);
+        double wantedMult = plugin.getConfig().getDouble("rewards.level-multipliers." + wantedLevel, 1.0D);
         double groupMult = 1.0D;
         String groupName = "default";
 
@@ -59,7 +58,7 @@ public class KillListener implements Listener {
             plugin.getLogger().warning("Could not retrieve LuckPerms group for " + killer.getName());
         }
 
-        // Mob multiplier
+        // Mob multiplier TODO MythicMobs support
         EntityType type = event.getEntityType();
         double sourceMult = plugin.getConfig().getDouble("reward-sources." + type.name().toLowerCase(), 1.0D);
 
