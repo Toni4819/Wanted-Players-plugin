@@ -65,6 +65,12 @@ rewards:
     vip: 2.5
     vip_plus: 3
 
+  #Reward commands
+  #Available placeholders are: %player% -> return player username, %amount% -> return reward amount in decimal.
+  #Add as many as you want !
+  reward-command:
+    - 'eco give %player% %amount%'
+
 messages:
   # Message sent to the killer when they receive coins.
   # Placeholders:

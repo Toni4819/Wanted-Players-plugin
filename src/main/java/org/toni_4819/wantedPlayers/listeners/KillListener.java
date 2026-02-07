@@ -1,10 +1,12 @@
 package org.toni_4819.wantedPlayers.listeners;
 
 import java.util.Random;
+import java.util.List;
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -26,8 +28,10 @@ public class KillListener implements Listener {
     public void onEntityKill(EntityDeathEvent event) {
         Player killer = event.getEntity().getKiller();
         if (killer == null) return;
+
         // Get killstreak with PlaceholderAPI
-        String ksStr = PlaceholderAPI.setPlaceholders(killer, plugin.getConfig().getString("killstreak-placeholder", "%pvpstats_killstreak%"));
+        String ksStr = PlaceholderAPI.setPlaceholders(killer,
+                plugin.getConfig().getString("killstreak-placeholder", "%pvpstats_killstreak%"));
         int killstreak = 0;
         try {
             killstreak = Integer.parseInt(ksStr);
@@ -58,13 +62,27 @@ public class KillListener implements Listener {
             plugin.getLogger().warning("Could not retrieve LuckPerms group for " + killer.getName());
         }
 
-        // Mob multiplier TODO MythicMobs support
+        // Mob multiplier: only reward if mob is listed
         EntityType type = event.getEntityType();
-        double sourceMult = plugin.getConfig().getDouble("reward-sources." + type.name().toLowerCase(), 1.0D);
+        String mobKey = type.name().toLowerCase();
+        if (!plugin.getConfig().getConfigurationSection("rewards.reward-sources").getKeys(false).contains(mobKey)) {
+            return; // mob not listed → no reward
+        }
+        double sourceMult = plugin.getConfig().getDouble("rewards.reward-sources." + mobKey);
 
         // Final reward
         int reward = (int) (baseReward * wantedMult * groupMult * sourceMult);
-        WantedPlayers.getEconomy().depositPlayer(killer, reward);
+
+        // Exécuter les commandes configurées
+        List<String> commands = plugin.getConfig().getStringList("rewards.reward-command");
+        for (String cmd : commands) {
+            String parsed = cmd
+                    .replace("%player%", killer.getName())
+                    .replace("%amount%", String.valueOf(reward))
+                    .replace("%stars%", WantedManager.getStars(wantedLevel))
+                    .replace("%group%", groupName);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), parsed);
+        }
 
         // Message
         String stars = WantedManager.getStars(wantedLevel);
