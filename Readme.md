@@ -9,8 +9,9 @@ It rewards bounty hunters with **money via Vault** and displays Wanted stars usi
 
 - [Vault](https://www.spigotmc.org/resources/vault.34315/) – economy handling
 - [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) – placeholders
-- [LuckPerms](https://luckperms.net/) – groups and permissions  (optionnal)
+- [LuckPerms](https://luckperms.net/) – groups and permissions  (optional)
 - [PvSStats Plugin](https://www.spigotmc.org/resources/pvpstats-plugin.69984/) – or other killstreak tracking plugin for plugin version 1.2+
+- [MythicMobs](https://modrinth.com/plugin/mythicmobs) - for MythicMobs reward sources (optional)
 
 ---
 
