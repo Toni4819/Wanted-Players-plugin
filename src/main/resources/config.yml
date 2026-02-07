@@ -40,8 +40,6 @@ rewards:
       min: 80
       max: 150
 
-
-
   # Reward sources for entities.
   # Add a mob here to make it give a reward.
   # Example: killing a player multiplies reward by 3.
@@ -53,7 +51,7 @@ rewards:
 
   # Multipliers applied based on Wanted level.
   # Example: level 3 multiplies the base reward by 2.0.
-  multipliers:
+  level-multipliers:
     1: 1.0
     2: 1.5
     3: 2.0
