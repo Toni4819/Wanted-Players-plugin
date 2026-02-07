@@ -48,6 +48,8 @@ rewards:
     player: 3
     zombie: 1
     iron_golem: 2
+    # fire_dragon: 5  #Example MythicMobs entity reward source
+
 
   # Multipliers applied based on Wanted level.
   # Example: level 3 multiplies the base reward by 2.0.

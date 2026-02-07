@@ -16,6 +16,10 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.toni_4819.wantedPlayers.WantedPlayers;
 import org.toni_4819.wantedPlayers.utils.WantedManager;
 
+// MythicMobs (API moderne 5.x+)
+import io.lumine.mythic.bukkit.MythicBukkit;
+import io.lumine.mythic.core.mobs.ActiveMob;
+
 public class KillListener implements Listener {
     private final WantedPlayers plugin;
     private final Random random = new Random();
@@ -62,9 +66,24 @@ public class KillListener implements Listener {
             plugin.getLogger().warning("Could not retrieve LuckPerms group for " + killer.getName());
         }
 
-        // Mob multiplier: only reward if mob is listed
-        EntityType type = event.getEntityType();
-        String mobKey = type.name().toLowerCase();
+        // Mob multiplier: MythicMobs or vanilla
+        String mobKey = event.getEntityType().name().toLowerCase();
+
+        if (Bukkit.getPluginManager().getPlugin("MythicMobs") != null) {
+            try {
+                ActiveMob mythicMob = MythicBukkit.inst()
+                        .getMobManager()
+                        .getActiveMob(event.getEntity().getUniqueId())
+                        .orElse(null);
+                if (mythicMob != null) {
+                    mobKey = mythicMob.getType().getInternalName().toLowerCase();
+                }
+            } catch (Throwable ignored) {
+                // Si MythicMobs n'est pas présent ou API incompatible, on ignore
+            }
+        }
+
+        // Only reward if mob is listed
         if (!plugin.getConfig().getConfigurationSection("rewards.reward-sources").getKeys(false).contains(mobKey)) {
             return; // mob not listed → no reward
         }
@@ -73,7 +92,7 @@ public class KillListener implements Listener {
         // Final reward
         int reward = (int) (baseReward * wantedMult * groupMult * sourceMult);
 
-        // Exécuter les commandes configurées
+        // Execute reward commands
         List<String> commands = plugin.getConfig().getStringList("rewards.reward-command");
         for (String cmd : commands) {
             String parsed = cmd
