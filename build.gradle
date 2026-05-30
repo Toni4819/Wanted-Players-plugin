@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:26.1.2.build.66-stable")
     implementation("org.bstats:bstats-bukkit:3.1.0") //bStats
 
     compileOnly("com.github.MilkBowl:VaultAPI:1.7") {
