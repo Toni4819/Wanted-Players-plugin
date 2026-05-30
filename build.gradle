@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id("xyz.jpenilla.run-paper") version "2.3.1"
-    id("com.gradleup.shadow") version "8.3.0" //bStats
+    id("com.gradleup.shadow") version "9.4.2" //bStats
 }
 
 group = 'org.toni_4819'
@@ -20,14 +20,14 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
-    implementation("org.bstats:bstats-bukkit:3.1.0") //bStats
+    implementation("org.bstats:bstats-bukkit:3.2.1") //bStats
 
     compileOnly("com.github.MilkBowl:VaultAPI:1.7") {
         exclude group: "org.bukkit", module: "bukkit"
     }
 
     compileOnly("me.clip:placeholderapi:2.11.6")
-    compileOnly("net.luckperms:api:5.4")
+    compileOnly("net.luckperms:api:5.5")
     compileOnly 'io.lumine:Mythic-Dist:5.6.1'
 
 }
