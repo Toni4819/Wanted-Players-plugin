@@ -1,16 +1,17 @@
 # 🎯 WantedPlayers
 
 WantedPlayers is a Paper plugin that adds a **Wanted Level system** based on player killstreaks.  
-It rewards bounty hunters with **money via Vault** and displays Wanted stars using PlaceholderAPI.
+It rewards bounty hunters with **money via Vault** and displays Wanted stars using PlaceholderAPI.  
 
 ---
 
 ## 🔌 Dependencies
 
-- [Vault](https://www.spigotmc.org/resources/vault.34315/) – economy handling
-- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) – placeholders
-- [LuckPerms](https://luckperms.net/) – groups and permissions  (optional)
-- [PvSStats Plugin](https://www.spigotmc.org/resources/pvpstats-plugin.69984/) – or other killstreak tracking plugin for plugin version 1.2+
+- [Vault](https://www.spigotmc.org/resources/vault.34315/) – economy api
+- [EssentialsX](https://essentialsx.net/) or other economy plugin
+- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) – placeholders 
+- [LuckPerms](https://luckperms.net/) – groups and permissions  (optionnal)
+- [PvPStats Plugin](https://www.spigotmc.org/resources/pvpstats-plugin.69984/) – or other killstreak tracking plugin for plugin version 1.2+
 - [MythicMobs](https://modrinth.com/plugin/mythicmobs) - for MythicMobs reward sources (optional)
 
 ---
@@ -103,28 +104,28 @@ messages:
 
   # Message sent when the config is reloaded with /wantedreload.
   reload: "&aConfig reloaded successfully."
-
 ```
 
 ---
 
 ## 📜 Commands
 
-- `/wantedreload` → reloads the configuration (`config.yml`)
-    - Permission: `wanted.reload`
+- `/wantedreload` → reloads the configuration (`config.yml`)  
+  - Permission: `wanted.reload`  
 
 ---
 
 ## 🪧 Placeholders (via PlaceholderAPI)
 ### 1.0 and 1.1
-- `%wanted_level%` → current Wanted level (1–5)
-- `%wanted_stars%` → star display (★/☆)
+- `%wanted_level%` → current Wanted level (1–5)  
+- `%wanted_stars%` → star display (★/☆)  
 - `%wanted_multiplier%` → total multiplier (Wanted × group)
 
 ### 1.1.1+
-- `%wantedplayers_level%` → current Wanted level (1–5)
-- `%wantedplayers_stars%` → star display (★/☆)
-- `%wantedplayers_multiplier%` → total multiplier (Wanted × group)
+- `%wantedplayers_level%` → current Wanted level (1–5)  
+- `%wantedplayers_stars%` → star display (★/☆)  
+- `%wantedplayers_multiplier%` → total multiplier (Wanted × group)  
+
 ---
 
 ## 🎮 How it works
@@ -133,5 +134,4 @@ messages:
 2. Your **Wanted level** is calculated based on thresholds.
 3. On each kill, you receive a random reward (min–max) × Wanted multiplier × group multiplier.
 4. Coins are added directly to your balance via Vault.
-5. A custom message is sent with the amount, stars, and group.  
-
+5. A custom message is sent with the amount, stars, and group.
